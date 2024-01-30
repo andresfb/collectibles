@@ -5,24 +5,24 @@ namespace Modules\Books\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Author extends Model
+class Series extends Model
 {
+    use SoftDeletes;
     use Sluggable;
-
-    public $timestamps = false;
 
     protected $fillable = [
         'slug',
-        'name',
-        'info',
+        'title',
+        'description',
     ];
 
     public function sluggable(): array
     {
         return [
             'slug' => [
-                'source' => 'name'
+                'source' => 'title'
             ]
         ];
     }
