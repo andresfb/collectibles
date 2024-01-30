@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Modules\Books\Database\Seeders\FormatSeeder;
+use Modules\Books\Database\Seeders\GenreSeeder;
+use Modules\Books\Database\Seeders\ServiceSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +16,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             TypeSeeder::class,
+            GenreSeeder::class,
+            FormatSeeder::class,
+            ServiceSeeder::class,
         ]);
     }
 }

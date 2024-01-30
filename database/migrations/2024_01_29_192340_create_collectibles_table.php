@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->integer('release_year');
             $table->string('condition');
-            // TODO: add a status field and Enum
+            $table->string('status')->default('created');
             $table->integer('price');
             $table->date('purchase_date');
             $table->softDeletes();

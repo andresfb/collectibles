@@ -5,8 +5,9 @@ namespace Modules\Books\Models;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Modules\Books\Enums\GenreType;
 
-class Author extends Model
+class Genre extends Model
 {
     use Sluggable;
 
@@ -15,7 +16,11 @@ class Author extends Model
     protected $fillable = [
         'slug',
         'name',
-        'info',
+        'type',
+    ];
+
+    protected $casts = [
+        'type' => GenreType::class,
     ];
 
     public function sluggable(): array
