@@ -2,14 +2,18 @@
 
 namespace Modules\Books\Enums;
 
+use App\Traits\EnumArrayable;
+
 enum EditionStatus: string
 {
-    case OnHand = 'on hand';
-    case Online = 'online';
-    case Downloaded = 'downloaded';
-    case Lended = 'lended';
-    case Destroyed = 'destroyed';
-    case Sold = 'sold';
-    case Donated = 'donated';
-    case Stored = 'stored';
+    use EnumArrayable;
+
+    case ONHAND = 'on hand';
+    case ONLINE = 'online';
+    case DOWNLOADED = 'downloaded';
+    case LENDED = 'lended';
+    case DESTROYED = 'destroyed';
+    case SOLD = 'sold';
+    case DONATED = 'donated';
+    case STORED = 'stored';
 }

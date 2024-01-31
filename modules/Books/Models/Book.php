@@ -15,14 +15,7 @@ class Book extends Model
     use SoftDeletes;
     use Sluggable;
 
-    protected $fillable = [
-        'collectible_id',
-        'slug',
-        'title',
-        'description',
-        'series_title',
-        'published_at',
-    ];
+    protected $guarded = [];
 
     protected $casts = [
         'published_at' => 'date',

@@ -10,11 +10,7 @@ class Format extends Model
 {
     public $timestamps = false;
 
-    protected $fillable = [
-        'type_id',
-        'name',
-        'is_digital',
-    ];
+    protected $guarded = [];
 
     protected $casts = [
         'is_digital' => 'boolean',

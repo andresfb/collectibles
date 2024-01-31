@@ -2,6 +2,7 @@
 
 namespace Modules\Books\Models;
 
+use App\Enums\Condition;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,15 +12,10 @@ class Edition extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = [
-        'book_id',
-        'format_id',
-        'service_id',
-        'location',
-        'status',
-    ];
+    protected $guarded = [];
 
     protected $casts = [
+        'condition' => Condition::class,
         'status' => EditionStatus::class,
     ];
 

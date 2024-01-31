@@ -8,7 +8,5 @@ class Service extends Model
 {
     public $timestamps = false;
 
-    protected $fillable = [
-        'name',
-    ];
+    protected $guarded = [];
 }

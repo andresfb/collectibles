@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignIdFor(Format::class);
             $table->foreignIdFor(Service::class);
             $table->text('location');
+            $table->string('condition');
             $table->string('status');
             $table->softDeletes();
             $table->timestamps();

@@ -10,10 +10,10 @@ class TypeSeeder extends Seeder
     public function run(): void
     {
         DB::table('types')->insert([
-            ['name' => 'Book'],
-            ['name' => 'Lego Set'],
-            ['name' => 'Vinyl Record'],
-            ['name' => 'Photography Print'],
+            ['code' => 'book', 'name' => 'Book'],
+            ['code' => 'lego', 'name' => 'Lego Set'],
+            ['code' => 'vinyl', 'name' => 'Vinyl Record'],
+            ['code' => 'print', 'name' => 'Photography Print'],
         ]);
     }
 }

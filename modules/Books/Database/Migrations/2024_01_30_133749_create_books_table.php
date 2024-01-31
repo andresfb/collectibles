@@ -15,8 +15,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('title');
             $table->text('description');
-            $table->string('series_title')->nullable();
-            $table->date('published_at');
+            $table->date('published_at')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

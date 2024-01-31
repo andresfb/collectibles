@@ -2,14 +2,19 @@
 
 namespace App\Enums;
 
+use App\Traits\EnumArrayable;
+
 enum Condition: string
 {
-    case NEW = 'New';
-    case USED = 'Used';
-    case REFURBISHED = 'Refurbished';
-    case OPEN_BOX = 'Open Box';
-    case DAMAGED = 'Damaged';
-    case UNKNOWN = 'Unknown';
-    case OTHER = 'Other';
-    case PRINTED = 'Printed';
+    use EnumArrayable;
+
+    case NEW = 'new';
+    case USED = 'used';
+    case DIGITAL = 'digital';
+    case REFURBISHED = 'refurbished';
+    case OPEN_BOX = 'open-box';
+    case DAMAGED = 'damaged';
+    case UNKNOWN = 'unknown';
+    case OTHER = 'other';
+    case PRINTED = 'printed';
 }

@@ -12,11 +12,7 @@ class Series extends Model
     use SoftDeletes;
     use Sluggable;
 
-    protected $fillable = [
-        'slug',
-        'title',
-        'description',
-    ];
+    protected $guarded = [];
 
     public function sluggable(): array
     {

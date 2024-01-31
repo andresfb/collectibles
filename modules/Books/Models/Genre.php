@@ -13,11 +13,7 @@ class Genre extends Model
 
     public $timestamps = false;
 
-    protected $fillable = [
-        'slug',
-        'name',
-        'type',
-    ];
+    protected $guarded = [];
 
     protected $casts = [
         'type' => GenreType::class,

@@ -16,10 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('release_year');
-            $table->string('condition');
             $table->string('status')->default('created');
-            $table->integer('price');
-            $table->date('purchase_date');
+            $table->date('purchase_date')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

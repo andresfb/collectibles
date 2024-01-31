@@ -2,21 +2,25 @@
 
 namespace App\Enums;
 
+use App\Traits\EnumArrayable;
+
 enum CollectibleStatus: string
 {
-    case Created = 'created';
-    case Available = 'available';
-    case Sold = 'sold';
-    case Donated = 'donated';
-    case Lost = 'lost';
-    case Damaged = 'damaged';
-    case Planed = 'planed';
-    case Purchased = 'purchased';
-    case Assembled = 'assembled';
-    case Disassembled = 'disassembled';
-    case InStorage = 'storage';
-    case Pending = 'pending';
-    case Photographed = 'photographed';
-    case Printed = 'printed';
-    case Framed = 'framed';
+    use EnumArrayable;
+
+    case CREATED = 'created';
+    case AVAILABLE = 'available';
+    case SOLD = 'sold';
+    case DONATED = 'donated';
+    case LOST = 'lost';
+    case DAMAGED = 'damaged';
+    case PLANED = 'planed';
+    case PURCHASED = 'purchased';
+    case ASSEMBLED = 'assembled';
+    case DISASSEMBLED = 'disassembled';
+    case INSTORAGE = 'storage';
+    case PENDING = 'pending';
+    case PHOTOGRAPHED = 'photographed';
+    case PRINTED = 'printed';
+    case FRAMED = 'framed';
 }

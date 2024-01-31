@@ -10,9 +10,7 @@ class Type extends Model
 {
     public $timestamps = false;
 
-    protected $fillable = [
-        'name',
-    ];
+    protected $guarded = [];
 
     public function collectibles(): HasMany
     {
@@ -22,5 +20,24 @@ class Type extends Model
     public function formats(): HasMany
     {
         return $this->hasMany(Format::class);
+    }
+
+    public static function getListArray(): array
+    {
+        $list = static::orderBy('name')->get();
+
+        $types = [];
+        foreach ($list as $type) {
+            $types[$type->code] = $type->name;
+        }
+
+        return $types;
+    }
+
+    public static function getId(string $code): int
+    {
+        return static::where('code', $code)
+            ->firstOrFail()
+            ->id;
     }
 }

@@ -3,48 +3,32 @@
 namespace App\Models;
 
 use App\Enums\CollectibleStatus;
-use App\Enums\Condition;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Books\Models\Book;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Tags\HasTags;
 
-class Collectible extends Model
+class Collectible extends Model implements HasMedia
 {
     use SoftDeletes;
     use HasFactory;
     use Sluggable;
+    use InteractsWithMedia;
+    use HasTags;
 
-    protected $fillable = [
-        'type_id',
-        'name',
-        'description',
-        'release_year',
-        'condition',
-        'status',
-        'price',
-        'purchase_date',
-    ];
+    protected $guarded = [];
 
     protected $casts = [
-        'condition' => Condition::class,
         'status' => CollectibleStatus::class,
-        'price' => 'integer',
         'release_year' => 'integer',
         'purchase_date' => 'date',
     ];
-
-    protected function price(): Attribute
-    {
-        return Attribute::make(
-            get: static fn ($value) => $value / 100,
-            set: static fn ($value) => $value * 100,
-        );
-    }
 
     public function sluggable(): array
     {
@@ -63,5 +47,23 @@ class Collectible extends Model
     public function books(): HasMany
     {
         return $this->hasMany(Book::class);
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('thumb')
+            ->acceptsMimeTypes([
+                'image/jpeg',
+                'image/png',
+            ])->singleFile()
+            ->withResponsiveImages()
+            ->useDisk('media');
+
+        $this->addMediaCollection('gallery')
+            ->acceptsMimeTypes([
+                'image/jpeg',
+                'image/png',
+            ])->withResponsiveImages()
+            ->useDisk('media');
     }
 }

@@ -12,11 +12,7 @@ class Author extends Model
 
     public $timestamps = false;
 
-    protected $fillable = [
-        'slug',
-        'name',
-        'info',
-    ];
+    protected $guarded = [];
 
     public function sluggable(): array
     {

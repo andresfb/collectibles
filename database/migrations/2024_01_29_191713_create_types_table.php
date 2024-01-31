@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('types', static function (Blueprint $table) {
             $table->id();
+            $table->string('code');
             $table->string('name');
         });
     }

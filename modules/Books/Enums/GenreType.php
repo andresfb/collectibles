@@ -2,10 +2,14 @@
 
 namespace Modules\Books\Enums;
 
+use App\Traits\EnumArrayable;
+
 enum GenreType: string
 {
-    case Book = 'book';
-    case Lego = 'lego';
-    case Music = 'music';
-    case Art = 'art';
+    use EnumArrayable;
+
+    case BOOK = 'book';
+    case LEGO = 'lego';
+    case MUSIC = 'music';
+    case ART = 'art';
 }
